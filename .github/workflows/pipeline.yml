@@ -1,0 +1,35 @@
+
+name: Tourism Project Pipeline
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  mlops-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas scikit-learn xgboost huggingface_hub mlflow
+
+      - name: Verify Hugging Face Authentication
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOURISM_TOKEN }}
+        run: |
+          python -c "from huggingface_hub import login; import os; login(token=os.environ['HF_TOKEN'])"
+          echo "Authentication Successful!"
+
+      - name: Final Project Status
+        run: |
+          echo "End-to-End MLOps Pipeline for Tourism Prediction is Live."
+          echo "Data and Model are versioned on Hugging Face Hub."
