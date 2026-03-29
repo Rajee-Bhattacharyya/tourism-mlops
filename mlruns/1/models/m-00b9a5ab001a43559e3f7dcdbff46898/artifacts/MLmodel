@@ -1,0 +1,22 @@
+artifact_path: /content/tourism_project/mlruns/1/models/m-00b9a5ab001a43559e3f7dcdbff46898/artifacts
+flavors:
+  python_function:
+    data: model.ubj
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.12.13
+  xgboost:
+    code: null
+    data: model.ubj
+    model_class: xgboost.sklearn.XGBClassifier
+    model_format: ubj
+    xgb_version: 3.2.0
+mlflow_version: 3.10.1
+model_id: m-00b9a5ab001a43559e3f7dcdbff46898
+model_size_bytes: 319242
+model_uuid: m-00b9a5ab001a43559e3f7dcdbff46898
+prompts: null
+run_id: 4a27e8dcdfed441da7217f1f50bae1b6
+utc_time_created: '2026-03-29 10:17:06.810761'
